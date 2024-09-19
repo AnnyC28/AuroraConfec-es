@@ -1,8 +1,24 @@
 import os
 
+noivas = []
+
+def exibir_subtitulo(texto):
+    os.system('cls')
+    print(texto)
+    print("")
+
+def retorna_menu_principal():
+    input('\n Digite uma tecla para voltar ao menu principal')
+    main()
+
+
 def mostra_titulo():
 
-    print('Aurora confecções\n')
+    print('''
+          
+          Aurora confecções\n
+          
+    ''')
 
 def mostra_escolhas():
     print('1. Cadastro de confecções de vestidos de noiva')
@@ -11,22 +27,47 @@ def mostra_escolhas():
     print('4. Sair da aplicação')
 
 def escolhe_opcao():
+ try:
     opcao_escolhida = int(input('Escolha uma opção: '))
     print('Você escolheu a opção: ' , opcao_escolhida)
 
-    def finalizar_programa():
-        os.system('cls')
-        print('Finalizando programa')
 
     if opcao_escolhida == 1:
-        print('Cadastrar vestidos para confecção')
+        print('Cadastrar noivas para confecção dos vestidos')
     elif opcao_escolhida == 2:
         print('Listar horários e consultas de orçamento agendados')
     elif opcao_escolhida == 3:
-        print('Ativar/Desativar cadastro de clientes')
-    else:
+        print('Ativar/Desativar cadastro de noivas')
+    elif opcao_escolhida == 4:
         finalizar_programa()
+    else:
+        opcao_invalida()
+ except:
+  opcao_invalida()
 
+def cadastrar_confeccao():
+     exibir_subtitulo('Cadastrar noiva')
+
+     nome_cliente = input('Digite o nome da noiva: ')
+     noivas.append(nome_cliente)
+     print(f' {nome_cliente} foi adicionado(a) as noivas da confecção')
+     retorna_menu_principal()
+
+def mostrar_noivas():
+    exibir_subtitulo('Cadastrar noiva')
+
+    for noiva in noivas:
+        print(f' - {noiva}')
+        retorna_menu_principal
+     
+def finalizar_programa():
+        os.system('cls')
+        print('Finalizando programa')
+
+def opcao_invalida():
+        print('Esse caractere não é permitido')
+        input('Digite qualquer tecla')
+        main()
 def main():
     mostra_titulo()
     mostra_escolhas()
