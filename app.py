@@ -1,6 +1,8 @@
 import os
 
-noivas = []
+noivas = [{'nome':'Ana', 'categoria':'vestido Mediterrâneo', 'em produção': True},
+          {'nome':'Nickolle', 'categoria': 'vestido Sereia', 'em produção': True},
+          {'nome':'Tauany', 'categoria': 'vestido Tradicional', 'em produção': False}]
 
 def exibir_subtitulo(texto):
     os.system('cls')
@@ -16,9 +18,9 @@ def mostra_titulo():
 
     print('''
           
-          Aurora confecções\n
-          
-    ''')
+
+     𝔸𝕦𝕣𝕠𝕣𝕒 ℂ𝕠𝕟𝕗𝕖𝕔𝕔̧𝕠̃𝕖𝕤\n
+          ''')
 
 def mostra_escolhas():
     print('1. Cadastro de confecções de vestidos de noiva')
@@ -57,7 +59,11 @@ def mostrar_noivas():
     exibir_subtitulo('Cadastrar noiva')
 
     for noiva in noivas:
-        print(f' - {noiva}')
+        nome_noiva = noiva['nome']
+        categoria = noiva['categoria']
+        ativo = noiva['ativo']
+
+        print(f' - {noiva} {categoria} {ativo}')
         retorna_menu_principal
      
 def finalizar_programa():
